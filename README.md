@@ -552,7 +552,7 @@ Possible extensions:
 
 # 👨‍💻 Author
 
-### Alisson Teixeira Bucch
+### Alisson T. Bucchi
 
 💡 Data Engineering • Data Quality • Analytics Engineering
 
