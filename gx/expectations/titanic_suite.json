@@ -1,0 +1,116 @@
+{
+  "expectations": [
+    {
+      "id": "c97fdceb-15a8-4c85-adad-eb085347424a",
+      "kwargs": {
+        "column": "PassengerId"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "fac71169-b8c8-4eca-9fe5-746728352cdf",
+      "kwargs": {
+        "column": "Age",
+        "max_value": 100.0,
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "964370b3-1cbc-4290-b3c1-da6e9760d6c6",
+      "kwargs": {
+        "column": "Sex",
+        "value_set": [
+          "male",
+          "female"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "7a4685d9-1eae-402f-b534-5359fe49d275",
+      "kwargs": {
+        "max_value": 2000,
+        "min_value": 500
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_be_between"
+    },
+    {
+      "id": "51b56b4d-3cff-42b7-9cfc-fc4ffe6dac6a",
+      "kwargs": {
+        "column": "Fare",
+        "max_value": 40.0,
+        "min_value": 20.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_mean_to_be_between"
+    },
+    {
+      "id": "ba2ef2e0-9c06-427e-8ff3-af27372cabed",
+      "kwargs": {
+        "column": "Fare",
+        "max_value": 30.0,
+        "min_value": 10.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_median_to_be_between"
+    },
+    {
+      "id": "f51a6714-a577-466c-a7ee-17b0ae2f9323",
+      "kwargs": {
+        "column": "Fare",
+        "quantile_ranges": {
+          "quantiles": [
+            0.25,
+            0.5,
+            0.75
+          ],
+          "value_ranges": [
+            [
+              0,
+              20
+            ],
+            [
+              10,
+              30
+            ],
+            [
+              20,
+              50
+            ]
+          ]
+        }
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_quantile_values_to_be_between"
+    },
+    {
+      "id": "6703a59e-8d56-420f-ad91-202eea6c77e5",
+      "kwargs": {
+        "column": "Survived",
+        "max_value": 2,
+        "min_value": 2
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_unique_value_count_to_be_between"
+    }
+  ],
+  "id": "80cb87bf-535b-4682-b6c3-24de6e0d81be",
+  "meta": {
+    "great_expectations_version": "1.17.2"
+  },
+  "name": "titanic_suite",
+  "notes": null
+}

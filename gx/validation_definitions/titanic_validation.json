@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "9671085c-c687-4966-a080-9a26044a3748",
+      "name": "titanic_csv"
+    },
+    "batch_definition": {
+      "id": "d2030f7e-efff-4413-829d-a38421002e0b",
+      "name": "whole_file"
+    },
+    "datasource": {
+      "id": "5303bf41-4534-4d26-b67d-5c5c8a344c6d",
+      "name": "titanic_datasource"
+    }
+  },
+  "id": "44817f87-59cc-42cc-8c53-370d9b60adbc",
+  "name": "titanic_validation",
+  "suite": {
+    "id": "80cb87bf-535b-4682-b6c3-24de6e0d81be",
+    "name": "titanic_suite"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "actions": [],
+  "id": "31025bca-61d6-4d91-bf74-6d56f1f4bb02",
+  "name": "titanic_checkpoint",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "44817f87-59cc-42cc-8c53-370d9b60adbc",
+      "name": "titanic_validation"
+    }
+  ]
+}
