@@ -1,80 +1,92 @@
-# Titanic Data Quality Pipeline with Great Expectations, MySQL and Power BI
+# 🚢 Titanic Data Quality Pipeline  
+### 📊 Great Expectations + MySQL + Power BI
 
-## Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Great_Expectations-Data_Quality-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql" />
+  <img src="https://img.shields.io/badge/PowerBI-Dashboard-yellow?style=for-the-badge&logo=powerbi" />
+</p>
 
-This project demonstrates a complete **Data Quality Pipeline** using:
+---
 
-- Python
-- Great Expectations (GX)
-- MySQL
-- Power BI
+# 📖 Overview
+
+This project demonstrates a complete **End-to-End Data Quality Pipeline** using:
+
+- 🐍 Python
+- ✅ Great Expectations (GX)
+- 🛢️ MySQL
+- 📊 Power BI
 
 The pipeline validates Titanic dataset records, stores validation results in MySQL, and visualizes data quality metrics in Power BI dashboards.
 
 ---
 
-# Architecture
+# 🏗️ Pipeline Architecture
 
 ```text
-train.csv
-    ↓
-Great Expectations Validation
-    ↓
-Validation Results
-    ↓
-MySQL Database
-    ↓
-Power BI Dashboard
+📄 train.csv
+        ↓
+✅ Great Expectations Validation
+        ↓
+📋 Validation Results
+        ↓
+🛢️ MySQL Database
+        ↓
+📊 Power BI Dashboard
 ```
 
 ---
 
-# Technologies Used
+# ⚙️ Technologies Used
 
 | Technology | Purpose |
 |---|---|
-| Python | ETL and validation scripts |
-| Great Expectations | Data quality validation |
-| Pandas | Data manipulation |
-| SQLAlchemy | MySQL connection |
-| PyMySQL | MySQL driver |
-| MySQL Workbench | Database management |
-| Power BI | Dashboard and visualization |
+| 🐍 Python | ETL and validation scripts |
+| ✅ Great Expectations | Data quality validation |
+| 🐼 Pandas | Data manipulation |
+| 🔗 SQLAlchemy | MySQL connection |
+| 🛢️ PyMySQL | MySQL driver |
+| 🧰 MySQL Workbench | Database management |
+| 📊 Power BI | Dashboard and visualization |
 
 ---
 
-# Project Structure
+# 📁 Project Structure
 
 ```text
 titanic-gx-project/
 │
-├── data/
-│   └── train.csv
+├── 📂 data/
+│   └── 📄 train.csv
 │
-├── scripts/
-│   ├── setup_gx.py
-│   ├── create_expectations.py
-│   ├── validate_data.py
-│   └── load_mysql.py
+├── 📂 scripts/
+│   ├── ⚙️ setup_gx.py
+│   ├── 🧪 create_expectations.py
+│   ├── ✅ validate_data.py
+│   └── 🛢️ load_mysql.py
 │
-├── great_expectations/
+├── 📂 great_expectations/
 │
-├── requirements.txt
+├── 📄 requirements.txt
 │
-└── README.md
+└── 📄 README.md
 ```
 
 ---
 
-# Step 1 — Create Virtual Environment
+# 🚀 Step 1 — Create Virtual Environment
 
-## Create environment
+## 🏗️ Create environment
 
 ```powershell
 python -m venv .venv
 ```
 
-## Activate environment
+---
+
+## ⚡ Activate environment
 
 ### PowerShell
 
@@ -84,7 +96,7 @@ python -m venv .venv
 
 ---
 
-# Step 2 — Install Dependencies
+# 📦 Step 2 — Install Dependencies
 
 ```powershell
 pip install -r requirements.txt
@@ -98,7 +110,7 @@ pip install great_expectations pandas sqlalchemy pymysql
 
 ---
 
-# Step 3 — Initialize Great Expectations
+# ✅ Step 3 — Initialize Great Expectations
 
 ```powershell
 python scripts/setup_gx.py
@@ -108,7 +120,7 @@ This creates the GX project structure.
 
 ---
 
-# Step 4 — Create Expectations
+# 🧪 Step 4 — Create Expectations
 
 Run:
 
@@ -116,18 +128,18 @@ Run:
 python scripts/create_expectations.py
 ```
 
-This creates the validation suite:
+This creates the validation suite containing:
 
-- Null validations
-- Numeric ranges
-- Allowed categorical values
-- Statistical validations
-- Quantile validations
-- Unique value validations
+- 🚫 Null validations
+- 🔢 Numeric range validations
+- 🏷️ Allowed categorical values
+- 📈 Statistical validations
+- 📊 Quantile validations
+- 🔍 Unique value validations
 
 ---
 
-# Step 5 — Validate Dataset
+# 🔎 Step 5 — Validate Dataset
 
 Run:
 
@@ -145,11 +157,9 @@ expect_table_row_count_to_be_between: True
 
 ---
 
-# Great Expectations Rules
+# 🧠 Great Expectations Rules
 
-## Example Expectations
-
-### Non-null validation
+## 🚫 Non-null validation
 
 ```python
 gx.expectations.ExpectColumnValuesToNotBeNull(
@@ -159,7 +169,7 @@ gx.expectations.ExpectColumnValuesToNotBeNull(
 
 ---
 
-### Numeric range validation
+## 🔢 Numeric range validation
 
 ```python
 gx.expectations.ExpectColumnValuesToBeBetween(
@@ -171,7 +181,7 @@ gx.expectations.ExpectColumnValuesToBeBetween(
 
 ---
 
-### Allowed categorical values
+## 🏷️ Allowed categorical values
 
 ```python
 gx.expectations.ExpectColumnValuesToBeInSet(
@@ -182,7 +192,7 @@ gx.expectations.ExpectColumnValuesToBeInSet(
 
 ---
 
-### Mean validation
+## 📈 Mean validation
 
 ```python
 gx.expectations.ExpectColumnMeanToBeBetween(
@@ -194,7 +204,7 @@ gx.expectations.ExpectColumnMeanToBeBetween(
 
 ---
 
-### Median validation
+## 📉 Median validation
 
 ```python
 gx.expectations.ExpectColumnMedianToBeBetween(
@@ -206,7 +216,7 @@ gx.expectations.ExpectColumnMedianToBeBetween(
 
 ---
 
-### Quantile validation
+## 📊 Quantile validation
 
 ```python
 gx.expectations.ExpectColumnQuantileValuesToBeBetween(
@@ -224,7 +234,7 @@ gx.expectations.ExpectColumnQuantileValuesToBeBetween(
 
 ---
 
-### Unique value count validation
+## 🔍 Unique value count validation
 
 ```python
 gx.expectations.ExpectColumnUniqueValueCountToBeBetween(
@@ -236,7 +246,7 @@ gx.expectations.ExpectColumnUniqueValueCountToBeBetween(
 
 ---
 
-# Step 6 — Generate Data Docs
+# 📝 Step 6 — Generate Data Docs
 
 Inside `validate_data.py`:
 
@@ -245,18 +255,21 @@ context.build_data_docs()
 context.open_data_docs()
 ```
 
-The generated report shows:
+The generated report includes:
 
-- Passed validations
-- Failed validations
-- Dataset statistics
-- Validation history
+- ✅ Passed validations
+- ❌ Failed validations
+- 📊 Dataset statistics
+- 🕒 Validation history
 
-If invalid data exists, GX highlights failures in red/yellow.
+If invalid data exists, GX highlights failures in:
+
+- 🔴 Red
+- 🟡 Yellow
 
 ---
 
-# Step 7 — Create MySQL Database
+# 🛢️ Step 7 — Create MySQL Database
 
 Open MySQL Workbench and run:
 
@@ -266,7 +279,7 @@ CREATE DATABASE titanic_quality;
 
 ---
 
-# Step 8 — Load Titanic Dataset into MySQL
+# 📥 Step 8 — Load Titanic Dataset into MySQL
 
 Run:
 
@@ -293,12 +306,12 @@ df.to_sql(
     index=False
 )
 
-print("Dataset loaded successfully.")
+print("✅ Dataset loaded successfully.")
 ```
 
 ---
 
-# Step 9 — Store Validation Results in MySQL
+# 📋 Step 9 — Store Validation Results in MySQL
 
 Inside `validate_data.py`, validation results are converted into a dataframe and stored in MySQL.
 
@@ -325,52 +338,52 @@ df_results.to_sql(
 
 ---
 
-# MySQL Tables
+# 🗄️ MySQL Tables
 
-## titanic_passengers
+## 🚢 titanic_passengers
 
 Stores Titanic dataset records.
 
-## gx_validation_results
+---
+
+## ✅ gx_validation_results
 
 Stores validation results from Great Expectations.
 
 ---
 
-# Step 10 — Connect Power BI to MySQL
+# 📊 Step 10 — Connect Power BI to MySQL
 
-## In Power BI
-
-### Get Data
+## 📥 In Power BI
 
 ```text
-Get Data → MySQL Database
+Home → Get Data → MySQL Database
 ```
 
 ---
 
-## Connection Settings
+## ⚙️ Connection Settings
 
 | Field | Value |
 |---|---|
-| Server | localhost |
-| Port | 3306 |
-| Database | titanic_quality |
+| 🖥️ Server | localhost |
+| 🔌 Port | 3306 |
+| 🛢️ Database | titanic_quality |
 
 ---
 
-## Select Tables
+## 📂 Select Tables
 
 Import:
 
-- `titanic_passengers`
-- `gx_validation_results`
+- 🚢 `titanic_passengers`
+- ✅ `gx_validation_results`
 
 ---
 
-# Power BI DAX Measures
+# 🧮 Power BI DAX Measures
 
-## Success Count
+## ✅ Success Count
 
 ```DAX
 Successes =
@@ -384,7 +397,7 @@ COUNTROWS(
 
 ---
 
-## Failure Count
+## ❌ Failure Count
 
 ```DAX
 Failures =
@@ -398,7 +411,7 @@ COUNTROWS(
 
 ---
 
-## Success Rate
+## 📈 Success Rate
 
 ```DAX
 Success Rate =
@@ -410,9 +423,9 @@ DIVIDE(
 
 ---
 
-# Suggested Dashboard Visuals
+# 📊 Suggested Dashboard Visuals
 
-## KPI Cards
+## 🧾 KPI Cards
 
 - Total validations
 - Successes
@@ -421,48 +434,48 @@ DIVIDE(
 
 ---
 
-## Pie Chart
+## 🥧 Pie Chart
 
 Validation status distribution:
 
-- Passed
-- Failed
+- ✅ Passed
+- ❌ Failed
 
 ---
 
-## Bar Chart
+## 📊 Bar Chart
 
 Validation failures by expectation type.
 
 ---
 
-## Table
+## 📋 Table
 
 Detailed validation results.
 
 ---
 
-# Example Data Quality Failures
+# 🚨 Example Data Quality Failures
 
 The pipeline detects issues such as:
 
 | Problem | Detected |
 |---|---|
-| Null values | Yes |
-| Invalid ages | Yes |
-| Invalid gender values | Yes |
-| Outliers | Yes |
-| Statistical anomalies | Yes |
+| 🚫 Null values | ✅ Yes |
+| 🔢 Invalid ages | ✅ Yes |
+| 🏷️ Invalid gender values | ✅ Yes |
+| 📈 Outliers | ✅ Yes |
+| 📊 Statistical anomalies | ✅ Yes |
 
 ---
 
-# Example Invalid Records
+# ❌ Example Invalid Records
 
 ```csv
 1,0,3,"Braund",male,9999
 ```
 
-Invalid age detected.
+🔴 Invalid age detected.
 
 ---
 
@@ -470,13 +483,13 @@ Invalid age detected.
 3,1,3,"Heikkinen",unknown,1000
 ```
 
-Invalid gender and age detected.
+🔴 Invalid gender and age detected.
 
 ---
 
-# Running the Full Pipeline
+# ▶️ Running the Full Pipeline
 
-## 1. Create expectations
+## 🧪 1. Create expectations
 
 ```powershell
 python scripts/create_expectations.py
@@ -484,7 +497,7 @@ python scripts/create_expectations.py
 
 ---
 
-## 2. Validate dataset
+## 🔎 2. Validate dataset
 
 ```powershell
 python scripts/validate_data.py
@@ -492,7 +505,7 @@ python scripts/validate_data.py
 
 ---
 
-## 3. Load dataset into MySQL
+## 🛢️ 3. Load dataset into MySQL
 
 ```powershell
 python scripts/load_mysql.py
@@ -500,48 +513,51 @@ python scripts/load_mysql.py
 
 ---
 
-## 4. Refresh Power BI dashboard
+## 📊 4. Refresh Power BI dashboard
 
 Open Power BI and refresh data.
 
 ---
 
-# Future Improvements
+# 🔮 Future Improvements
 
 Possible extensions:
 
-- Airflow orchestration
-- Docker containers
-- CI/CD integration
-- Real-time validation
-- Azure Data Factory integration
-- Snowflake or BigQuery support
-- Email alerts on failures
+- 🌪️ Apache Airflow orchestration
+- 🐳 Docker containers
+- 🔄 CI/CD integration
+- ⚡ Real-time validation
+- ☁️ Azure Data Factory
+- ❄️ Snowflake support
+- 📬 Email alerts on failures
+- 📡 Data observability monitoring
 
 ---
 
-# Example Pipeline Flow
+# 🔄 Example Pipeline Flow
 
 ```text
-CSV Dataset
-    ↓
-Great Expectations
-    ↓
-Validation Results
-    ↓
-MySQL
-    ↓
-Power BI Dashboard
+📄 CSV Dataset
+        ↓
+✅ Great Expectations
+        ↓
+📋 Validation Results
+        ↓
+🛢️ MySQL
+        ↓
+📊 Power BI Dashboard
 ```
 
 ---
 
-# Author
+# 👨‍💻 Author
 
-Alisson Teixeira Bucch
+### Alisson Teixeira Bucch
+
+💡 Data Engineering • Data Quality • Analytics Engineering
 
 ---
 
-# License
+# 📜 License
 
 Apache-2.0
